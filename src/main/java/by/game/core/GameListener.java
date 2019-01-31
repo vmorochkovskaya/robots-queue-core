@@ -1,4 +1,4 @@
-package by.game.core.entityes;
+package by.game.core;
 
 import by.game.proxi.IGameActorListener;
 import by.game.proxi.IRobot;

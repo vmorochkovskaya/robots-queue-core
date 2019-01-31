@@ -1,4 +1,4 @@
-package by.game.core.entityes;
+package by.game.core;
 
 import java.util.LinkedList;
 import java.util.concurrent.Semaphore;

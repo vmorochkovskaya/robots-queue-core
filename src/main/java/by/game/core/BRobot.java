@@ -1,4 +1,4 @@
-package by.game.core.entityes;
+package by.game.core;
 
 public class BRobot extends Robot{
 	
