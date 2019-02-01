@@ -15,7 +15,7 @@ public abstract class Robot extends Thread implements IRobot{
 			this.id = COUNT++;
 		}
 		if(name==null){
-			this.name = "#"+this.id;
+			this.name = "№"+this.id;
 		}else this.name = name;
 	}
 	
