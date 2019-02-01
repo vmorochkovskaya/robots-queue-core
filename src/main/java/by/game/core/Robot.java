@@ -22,7 +22,7 @@ public abstract class Robot extends Thread implements IRobot{
 	@Override
 	public void die() {
 		this.alive = false;
-		Game.gameActorListener().robotIsAdded(this);
+		Game.gameActorListener().robotIsDied(this);
 	}
 
 	@Override
@@ -65,6 +65,7 @@ public abstract class Robot extends Thread implements IRobot{
 		while(this.alive){
 			this.nextTask();
 		}
+		Game.gameActivityTracker().log(this.name+" : I am dying...");
 	}
 	
 	public void pause(long timeout){
