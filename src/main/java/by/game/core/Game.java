@@ -82,14 +82,19 @@ public class Game implements IGameWorld{
 		return INSTANCE.gameActorListener;
 	}
 	
-	public static void start(){
-		INSTANCE.gameActivityTracker().log("I am starting");
-		INSTANCE.taskFactory.start();
-	}
+	
 
 	@Override
-	public void setIGameActivityTracker(IGameActivityTracker arg0) {
+	public IGameWorld setIGameActivityTracker(IGameActivityTracker arg0) {
 		this.gameActivityTracker = arg0;
+		return this;
+	}
+
+	
+
+	@Override
+	public void startGame() {
+		this.taskFactory.start();
 	}
 	
 }
