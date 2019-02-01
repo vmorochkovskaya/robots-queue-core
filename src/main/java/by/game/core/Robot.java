@@ -34,8 +34,8 @@ public abstract class Robot extends Thread implements IRobot{
 	public void nextTask() {
 		ITask task=null;
 		try {
-			Game.taskQueue(getIdObject()).acquire();
-			task = Game.taskQueue().getTask();
+			Game.taskQueue(this.getIdObject()).acquire();
+			task = Game.taskQueue(this.getIdObject()).getTask();
 			Game.taskQueue(getIdObject()).release();
 			if(task==null){
 				Game.taskQueue().acquire();
