@@ -2,7 +2,8 @@ package by.game.core;
 
 public class TaskFactory extends Thread{
 
-	private static int PAUSE = 10000;
+	public static final long DEFAULT_MAX_PAUSE = 30000;
+	private volatile static Long PAUSE = DEFAULT_MAX_PAUSE;
 	
 	public void run(){
 		while(true){
@@ -14,5 +15,11 @@ public class TaskFactory extends Thread{
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	protected void setTaskInterval(long interval){
+		synchronized(PAUSE){
+			PAUSE=interval;
+			}
 	}
 }

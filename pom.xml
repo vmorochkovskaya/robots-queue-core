@@ -26,7 +26,7 @@
 <dependency>
 	    <groupId>com.github.misterlucky1982</groupId>
 	    <artifactId>game_test_proxi</artifactId>
-	    <version>740ba4d537</version>
+	    <version>8bf03230a3</version>
 	</dependency>
 	
   </dependencies>

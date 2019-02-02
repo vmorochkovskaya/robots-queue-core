@@ -55,16 +55,6 @@ public class Game implements IGameWorld{
 		this.gameActivityTracker.log(arg1.getTaskValue()+" added");
 		this.gameActorListener.taskAdded();
 	}
-
-	public IRobot getById(Object arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public IRobot someRobot() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	public static TaskQueue taskQueue(Object key){
 		return INSTANCE.taskQueeMap.get(key);
@@ -81,8 +71,6 @@ public class Game implements IGameWorld{
 	public static IGameActorListener gameActorListener(){
 		return INSTANCE.gameActorListener;
 	}
-	
-	
 
 	@Override
 	public IGameWorld setIGameActivityTracker(IGameActivityTracker arg0) {
@@ -90,11 +78,23 @@ public class Game implements IGameWorld{
 		return this;
 	}
 
-	
-
 	@Override
 	public void startGame() {
 		this.taskFactory.start();
 	}
-	
+
+	@Override
+	public void setMaxTaskTime(long arg0) {
+		Task.setMaxTaskTime(arg0);
+	}
+
+	@Override
+	public void setTaskAmountThreshold(int arg0) {
+		Task.setTaskAmountThreshold(arg0);
+	}
+
+	@Override
+	public void setTaskInterval(long arg0) {
+		this.taskFactory.setTaskInterval(arg0);
+	}
 }
