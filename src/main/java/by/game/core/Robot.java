@@ -23,6 +23,7 @@ public abstract class Robot extends Thread implements IRobot{
 	public void die() {
 		this.alive = false;
 		Game.gameActorListener().robotIsDied(this);
+		Game.toNullRobotTaskQueue(this);
 	}
 
 	@Override

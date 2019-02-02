@@ -97,4 +97,14 @@ public class Game implements IGameWorld{
 	public void setTaskInterval(long arg0) {
 		this.taskFactory.setTaskInterval(arg0);
 	}
+	
+	protected static void toNullRobotTaskQueue(Robot robot){
+		if(robot==null)return;
+		synchronized(INSTANCE.taskQueeMap){
+			if(INSTANCE.taskQueeMap.containsKey(robot.getIdObject())){
+				INSTANCE.taskQueeMap.remove(robot.getIdObject());
+			}
+		}
+		
+	}
 }
