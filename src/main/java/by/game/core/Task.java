@@ -47,10 +47,6 @@ public class Task implements ITask{
 		robot.free();
 	}
 	
-	protected void finalize(){
-		System.out.println("finalizing "+this.task+" ...");
-	}
-	
 	protected static void setTaskAmountThreshold(int threshold){
 		THRESHOLD = threshold;
 	}
