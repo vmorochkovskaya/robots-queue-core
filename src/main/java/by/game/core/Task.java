@@ -20,6 +20,9 @@ public class Task implements ITask{
 			COUNT++;
 		}
 		this.task = task;
+		synchronized(MAX_TASK_TIME){
+			this.time = (long)(MAX_TASK_TIME*Math.random());
+		}
 	}
 	
 	public Task(){
