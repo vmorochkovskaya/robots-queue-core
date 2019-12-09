@@ -5,10 +5,18 @@ import by.game.core.entity.Log;
 import by.game.proxi.IRobot;
 import by.game.proxi.ITask;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
-public abstract class Robot extends Thread implements IRobot{
+@Component
+public abstract class Robot extends Thread implements IRobot, ApplicationRunner {
 
+    private ILogDao logDAO;
 
+    @Autowired
+    public Robot(ILogDao logDAO) {
+        this.logDAO = logDAO;
+    }
 	@Autowired
 	private ILogDao logDao;
 
