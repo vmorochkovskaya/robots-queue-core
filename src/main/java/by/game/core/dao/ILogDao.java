@@ -2,11 +2,12 @@ package by.game.core.dao;
 
 
 import by.game.core.entity.Log;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface ILogDao extends CrudRepository<Log, Integer> {
+import java.io.Serializable;
+import java.sql.SQLException;
 
-   void addLog(Log log);
+
+public interface ILogDao {
+
+   Serializable addLog(Log log) throws SQLException;
 }
