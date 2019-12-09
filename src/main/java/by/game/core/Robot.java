@@ -1,16 +1,14 @@
 package by.game.core;
 
-import by.game.core.dao.ILogDAO;
 import by.game.core.entity.Log;
 import by.game.proxi.IRobot;
 import by.game.proxi.ITask;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class Robot extends Thread implements IRobot{
 
 
-	@Autowired
-	private ILogDAO logDao;
+//	@Autowired
+//	private ILogDAO logDao;
 
 	private static Integer COUNT = 0;
 	private String name;
@@ -33,7 +31,7 @@ public abstract class Robot extends Thread implements IRobot{
 		log.setRobotName(this.name);
 		log.setMessage("Robot is dying as killed");
 		log.setTime(new java.sql.Time(new java.util.Date().getTime()));
-		logDao.addLog(log);
+//		logDao.addLog(log);
 
 		Game.gameActorListener().robotIsDied(this);
 		Game.toNullRobotTaskQueue(this);
@@ -83,7 +81,7 @@ public abstract class Robot extends Thread implements IRobot{
 		log.setRobotName(this.name);
 		log.setMessage("Robot is added");
 		log.setTime(new java.sql.Time(new java.util.Date().getTime()));
-		logDao.addLog(log);
+//		logDao.addLog(log);
 
 		while(this.alive){
 			this.nextTask();
@@ -91,7 +89,7 @@ public abstract class Robot extends Thread implements IRobot{
 		log.setRobotName(this.name);
 		log.setMessage("Robot is dying as life cycle is over");
 		log.setTime(new java.sql.Time(new java.util.Date().getTime()));
-		logDao.addLog(log);
+//		logDao.addLog(log);
 		Game.gameActivityTracker().log(this.name+" : I am dying...");
 	}
 	
