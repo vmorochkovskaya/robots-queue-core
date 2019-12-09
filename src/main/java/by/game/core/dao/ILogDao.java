@@ -8,5 +8,5 @@ import java.io.Serializable;
 
 public interface ILogDAO extends CrudRepository<Log, Long> {
 
-    public Serializable addLog(Log item);
+    Serializable addLog(Log item);
 }
