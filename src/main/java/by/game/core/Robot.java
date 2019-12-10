@@ -1,18 +1,13 @@
 package by.game.core;
 
-import by.game.core.dao.ILogDao;
-import by.game.core.dao.LogDaoImpl;
-import by.game.core.entity.Log;
 import by.game.proxi.IRobot;
 import by.game.proxi.ITask;
 import org.springframework.stereotype.Component;
 
-import java.sql.SQLException;
-
 @Component
 public abstract class Robot extends Thread implements IRobot {
 
-    private ILogDao logDAO = new LogDaoImpl();
+//    private ILogDao logDAO = new LogDaoImpl();
 
 //	@Autowired
 //	private ILogDao logDao;
@@ -34,15 +29,15 @@ public abstract class Robot extends Thread implements IRobot {
 	@Override
 	public void die() {
 		this.alive = false;
-		Log log = new Log();
-		log.setRobotName(this.name);
-		log.setMessage("Robot is dying as killed");
-		log.setTime(new java.sql.Time(new java.util.Date().getTime()));
-        try {
-            logDAO.addLog(log);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//		Log log = new Log();
+//		log.setRobotName(this.name);
+//		log.setMessage("Robot is dying as killed");
+//		log.setTime(new java.sql.Time(new java.util.Date().getTime()));
+//        try {
+//            logDAO.addLog(log);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
         Game.gameActorListener().robotIsDied(this);
 		Game.toNullRobotTaskQueue(this);
@@ -88,27 +83,27 @@ public abstract class Robot extends Thread implements IRobot {
 	}
 
 	public void run(){
-		Log log = new Log();
-		log.setRobotName(this.name);
-		log.setMessage("Robot is added");
-		log.setTime(new java.sql.Time(new java.util.Date().getTime()));
-        try {
-            logDAO.addLog(log);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//		Log log = new Log();
+//		log.setRobotName(this.name);
+//		log.setMessage("Robot is added");
+//		log.setTime(new java.sql.Time(new java.util.Date().getTime()));
+//        try {
+//            logDAO.addLog(log);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
         while(this.alive){
 			this.nextTask();
 		}
-		log.setRobotName(this.name);
-		log.setMessage("Robot is dying as life cycle is over");
-		log.setTime(new java.sql.Time(new java.util.Date().getTime()));
-        try {
-            logDAO.addLog(log);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//		log.setRobotName(this.name);
+//		log.setMessage("Robot is dying as life cycle is over");
+//		log.setTime(new java.sql.Time(new java.util.Date().getTime()));
+//        try {
+//            logDAO.addLog(log);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
         Game.gameActivityTracker().log(this.name+" : I am dying...");
 	}
 	
